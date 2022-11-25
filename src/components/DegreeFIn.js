@@ -93,7 +93,7 @@ const DegreeFIn = () => {
     const relationDegreeFinder = (db=[],searcherId=null,searchingId=null,degreeCount,escapeList=[],searcherName) =>{
         // return if connection number is >= 5
         if (degreeCount >= 5) {
-            return "Not Found"
+            return "Not Found";
         }
         // search the searching id in the searcher's own relationship list
         const searcherRealationList = db.find(person => person.id === searcherId)?.relations;
