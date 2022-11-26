@@ -78,7 +78,7 @@ const db_demo = [
     },
     { 
         id: 10,
-        name: "I",
+        name: "J",
         relations: [
             {id: 7,rel: "Dgt"},
             {id: 4,rel: "Dgt"},
@@ -91,19 +91,21 @@ const db_demo = [
 const DegreeFIn = () => {
 
     const relationDegreeFinder = (db=[],searcherId=null,searchingId=null,degreeCount,escapeList=[],searcherName) =>{
+        console.log(escapeList);
         // return if connection number is >= 5
-        if (degreeCount >= 5) {
+        if (degreeCount >= 8) {
             return "Not Found";
         }
         // search the searching id in the searcher's own relationship list
         const searcherRealationList = db.find(person => person.id === searcherId)?.relations;
         // look if the sercherid is in this own list
         const foundPerson = searcherRealationList?.find(person => person.id === searchingId);
-        const searcher = db.find(person => person.id === searcherId).name;
+        
         // console.log(searcher," = ", searcherName);
         if (foundPerson) {
             // find searchrId name and searcheringId name and return
             const searching = db.find(person => person.id === searchingId).name;
+            console.log(" -- ", searcherName);
             return `${searcherName} > ${searching}`;
         }else{
             // look for the list of next degree 
@@ -120,6 +122,7 @@ const DegreeFIn = () => {
         }
         
     }
+    
     const degreeBase = relationDegreeFinder(db_demo,1,4,0,[1],"A");
     console.log(degreeBase.split(" > ").includes("Not Found"));
     console.log("Final Base relation degree = ",degreeBase);

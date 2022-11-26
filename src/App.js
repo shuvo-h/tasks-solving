@@ -7,6 +7,7 @@ import DegreesOfSeparation from './components/DegreesOfSeparation/DegreesOfSepar
 function App() {
   return (
     <div className="App">
+      {/* <DegreeFIn></DegreeFIn> */}
       <DegreesOfSeparation></DegreesOfSeparation>
     </div>
   );
