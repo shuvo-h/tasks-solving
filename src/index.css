@@ -3,3 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* global css  */
+.text_center{ text-align: center;}
+.d_block{display: block;}

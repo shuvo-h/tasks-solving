@@ -5,14 +5,18 @@ export interface TXLSXSheetData {
     sheet: string;
     data: any[];
 }
+export interface TXLSXFile {
+    fileName:string,
+    sheetData: TXLSXSheetData[]
+} 
 
 export const xlsxUtils = {
-    uploadAndConvertXlsxToArray(e: React.ChangeEvent<HTMLInputElement>): Promise<TXLSXSheetData[]> {
+    uploadAndConvertXlsxToArray(e: React.ChangeEvent<HTMLInputElement>): Promise<TXLSXFile> {
         return new Promise((resolve, reject) => {
             const file = e.target?.files ? e.target.files[0] : null;
 
             if (!file) {
-                resolve([]);
+                resolve({sheetData:[],fileName:""});
                 return;
             }
 
@@ -42,7 +46,7 @@ export const xlsxUtils = {
                     sheetData.push({ sheet: sheetName, data: parsedData });
                 });
 
-                resolve(sheetData);
+                resolve({fileName:file.name,sheetData});
             };
 
             reader.onerror = (error) => {
@@ -61,10 +65,22 @@ export const xlsxUtils = {
             const filteredData = sheetObj.data.filter(entry => entry[primaryKeyToFilter]);
             // Return the filtered data along with the sheet information
             return {
-            sheet: sheetObj.sheet,
-            data: filteredData
+                sheet: sheetObj.sheet,
+                data: filteredData
             };
         });
         return filteredSheets;
+    },
+    filterEmptyDataForSingleSheet (sheetsData:TXLSXSheetData[],primaryKeyToFilter:string,sheetName: string){
+        const sheetObj = sheetsData.find(sheet => sheet.sheet === sheetName);
+        if (!sheetObj) {
+            return {sheet:sheetName,data:[]};
+        }
+         // Filter out objects within the specified sheet where the primary key property is truthy
+        const filteredData = sheetObj.data.filter(entry => entry[primaryKeyToFilter]);
+        return {
+            sheet: sheetObj.sheet,
+            data: filteredData
+        };
     },
 };

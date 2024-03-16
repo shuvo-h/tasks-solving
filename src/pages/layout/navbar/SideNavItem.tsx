@@ -9,7 +9,11 @@ const SideNavItem = ({item}:TSideNavItemProps) => {
     return (
         <NavLink 
             to={item.path}
-            style={{display:"block", padding:"2px 0"}}
+            // className={'nav_item'}
+            className={({isActive,})=>[
+                "nav_item",
+                isActive ? "active_item" : "",
+            ].join(" ")}
         >
             {item.name}
         </NavLink>

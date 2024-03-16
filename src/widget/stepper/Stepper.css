@@ -1,0 +1,78 @@
+.stepper_container{
+    padding: 0.5rem;
+}
+
+.stepper_container .step{
+    position: relative;
+    min-height: 1rem;
+    color: gray;
+    display: flex;
+}
+
+.stepper_container .title {
+    line-height: 1.5em;
+    font-weight: bolder;
+}
+.stepper_container .caption {
+    font-size: 0.9em;
+}
+
+.stepper_container  .step + .step{
+    margin-top: 1rem;
+}
+
+/* target the 1st div to make height 0 and sposition static*/
+.stepper_container  .step > div:first-child{
+    /* position: static; */
+    position: relative;
+}
+/* target all divs except the 1st div to give some space in left*/
+.stepper_container .step > div:not(:first-child){
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+/* circle style  */
+.stepper_container .circle{
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    background-color: gray;
+    box-shadow: 0 0 0 3px #fff;
+}
+.stepper_container .active_circle{
+    background-color: BlueViolet;
+}
+.stepper_container  .completed_circle{
+    background-color: green;
+}
+
+/* verticle line */
+.stepper_container  .circle_wrapper {
+    position: relative;
+}
+
+.stepper_container .circle_wrapper::after {
+    position: absolute;
+    content: " ";
+    display: block;
+    width: 3px;
+    height: calc(100% - 10px);
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: gray;
+}
+.stepper_container .completed_circle_wrapper::after{
+    background-color: green;
+}
+
+.stepper_container .step:last-child .circle_wrapper:after {
+    display: none
+}
+
+

@@ -1,0 +1,28 @@
+.tool_page{
+    padding: 1% 0 0 1%;
+}
+.tool_page .tool_btn{
+    background-color: #4a92ef;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+.tool_page .tool_btn:hover{
+    background-color: #2f80ed;
+    transition: color 0.2s ease-in-out;
+}
+.Xlsx_container{
+    display: grid;
+    grid-template-columns: minmax(auto,220px) 1fr;
+    gap: 1rem;
+}
+.Xlsx_container aside:not(:first-child){
+    padding: 1%;
+}
+
+.Xlsx_container .uploader_btn{
+
+}

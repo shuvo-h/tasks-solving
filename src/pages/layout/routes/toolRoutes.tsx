@@ -13,7 +13,7 @@ export const toolRoutes:{prefix:"/tools",routes:TChildRouteItem[]} = {
             sideBar: true,
         },
         {
-            name:"test tool",
+            name:"test Tool",
             path: "abc/test/path",
             element: <Home />,
             loader: ()=><div>Loading...</div>,
