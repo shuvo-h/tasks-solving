@@ -6,6 +6,11 @@ export const templateList = [
         type:"Bar Chart"
     },
     {
+        key:"hasOrNotPieChart",
+        title:"Has Or Not Pie Comparisn",
+        type:"Pie Chart"
+    },
+    {
         key:"",
         title:"test 2",
         type:"Pie Chart"

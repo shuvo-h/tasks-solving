@@ -1,0 +1,27 @@
+
+/* hasOrNoHasPage */
+.hasOrNoHasPage_container{
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 1rem;
+}
+
+.hasOrNoHasPage_container .nav{
+
+}
+.hasOrNoHasPage_container .nav span{
+    background-color: skyblue;
+    padding: 8px 2px;
+    /* margin: 0 1px; */
+    border-right: 1px solid gray;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+}
+.hasOrNoHasPage_container .nav span:last-child{
+    border-right: none;
+}
+.hasOrNoHasPage_container .nav .active{
+    background-color: yellowgreen;
+    color: blue;
+}

@@ -12,15 +12,14 @@ import GraphGenerator from "./GraphGenerator";
 
 
 const XlsxToChart = () => {
-    const [activeStep,setActiveStep] = useState(5);
+    const [activeStep,setActiveStep] = useState(1);
     // const [xlData,setXlData] = useState<TXLSXFile>({sheetData:[],fileName:""} as TXLSXFile)
     const [xlData,setXlData] = useState<TXLSXFile>(demoxlData);
     const [selectedSheet,setSelectedSheet] = useState<TXLSXSheetData>(demoxlData.sheetData[0] as TXLSXSheetData);
     const [selectedPrimaryColumn,setSelectedPrimaryColumn] = useState<string>("Name");
     const [selectedTemplate,setSelectedTemplate] = useState<string>("hasOrNotBarChart");
-    console.log(selectedPrimaryColumn,selectedSheet);
     
-
+    
 
 
 

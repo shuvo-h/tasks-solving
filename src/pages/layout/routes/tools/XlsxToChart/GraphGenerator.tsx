@@ -1,5 +1,6 @@
 import { templateList } from "./GraphTemplates";
 import HasOrNotHasBarGraph from "./templates/HasOrNotHasBarGraph";
+import HasOrNotHasPieGraph from "./templates/HasOrNotHasPieGraph";
 import { TXLSXSheetData, xlsxUtils } from "./xlsxToCharUtils";
 
 type TGraphGeneratorProps ={
@@ -21,6 +22,8 @@ const GraphGenerator = ({template,xlSheetData,primaryColumn,sheetName}:TGraphGen
         switch (template) {
             case templates['hasOrNotBarChart']:
                 return <HasOrNotHasBarGraph filteredData={filteredData.data} />;
+            case templates['hasOrNotPieChart']:
+                return <HasOrNotHasPieGraph filteredData={filteredData.data} />;
         
             default:
                 break;
