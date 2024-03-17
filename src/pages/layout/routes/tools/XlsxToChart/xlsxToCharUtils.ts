@@ -84,3 +84,58 @@ export const xlsxUtils = {
         };
     },
 };
+
+interface DataItem {
+    [key: string]: string | number;
+}
+
+
+export const graphDataFormatter = {
+    hasAndNotHas<T extends DataItem>(data: T[], groupBy: string, hasNoHasKeyName: string) {
+        const result = [];
+    
+        // Grouping data by the comparison key
+        const groupedByComparisonKey: { [key: string]: T[] } = {};
+        data.forEach(item => {
+            if (!groupedByComparisonKey[item[groupBy]]) {
+                groupedByComparisonKey[item[groupBy]] = [];
+            }
+            groupedByComparisonKey[item[groupBy]].push(item);
+        });
+    
+        // Counting property presence by the comparison key
+        for (const key in groupedByComparisonKey) {
+            let hasCount = 0;
+            let notHasCount = 0;
+            groupedByComparisonKey[key].forEach(item => {
+                if (item[hasNoHasKeyName]) {
+                    hasCount++;
+                } else {
+                    notHasCount++;
+                }
+            });
+            result.push({
+                // [groupBy]: key,
+                groupBy: key,
+                key: hasNoHasKeyName,
+                hasCount: hasCount,
+                notHasCount: notHasCount
+            });
+        }
+    
+        return result;
+    },
+    
+}
+
+export const downloadChartById = (id:string,name:string) =>{
+    const lineCanvas = document.getElementById(id);
+    if (!lineCanvas) {
+        return
+    }
+    const lineUrl = lineCanvas.toDataURL('image/jpeg');
+    const lineLink = document.createElement('a');
+    lineLink.href = lineUrl;
+    lineLink.download = `${name}.jpg`;
+    lineLink.click();
+  }

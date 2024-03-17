@@ -5,17 +5,7 @@ export const demoxlData = {
             "sheet": "Sheet1",
             "data": [
                 {
-                    "State": "Alabama",
-                    "Name": "Z Digital Solutions (Drafting, Graphic Design, illustration, Technical / Instructional Manual )",
-                    "Website": "https://zdigitalsolutions.business.site/",
-                    "Phone": "1 571-236-4583",
-                    "Reviews": 3,
-                    "Rating": 5,
-                    "GMB URL": "https://www.google.com/maps/place/Z+Digital+Solutions+%28Drafting,+Graphic+Design,+illustration,+Technical+%2F+Instructional+Manual+%29/data=!4m7!3m6!1s0x886266f9f4ed75ab:0x504253532dd1abf6!8m2!3d34.8193871!4d-86.7421929!16s%2Fg%2F11c6dc_rqj!19sChIJq3Xt9PlmYogR9qvRLVNTQlA?authuser=0&hl=en&rclk=1",
-                    "Category": "Graphic designer"
-                },
-                {
-                    "State": "Alabama",
+                    "State": "Dhaka",
                     "Name": "Your Home Design Inc",
                     "LinkedIn": "https://www.linkedin.com/in/alan-duncan-089aa633'",
                     "Facebook": "https://www.facebook.com/Your-Home-Design-Inc-134463636619517/'",
@@ -27,6 +17,16 @@ export const demoxlData = {
                     "Rating": 5,
                     "GMB URL": "https://www.google.com/maps/place/Your+Home+Design+Inc/data=!4m7!3m6!1s0x889bb32e2d21b2f9:0xcb0b1e9290235300!8m2!3d30.6183793!4d-88.2223137!16s%2Fg%2F12601f9lv!19sChIJ-bIhLS6zm4gRAFMjkJIeC8s?authuser=0&hl=en&rclk=1",
                     "Category": "Drafting service"
+                },
+                {
+                    "State": "Alabama",
+                    "Name": "Z Digital Solutions (Drafting, Graphic Design, illustration, Technical / Instructional Manual )",
+                    "Website": "https://zdigitalsolutions.business.site/",
+                    "Phone": "1 571-236-4583",
+                    "Reviews": 3,
+                    "Rating": 5,
+                    "GMB URL": "https://www.google.com/maps/place/Z+Digital+Solutions+%28Drafting,+Graphic+Design,+illustration,+Technical+%2F+Instructional+Manual+%29/data=!4m7!3m6!1s0x886266f9f4ed75ab:0x504253532dd1abf6!8m2!3d34.8193871!4d-86.7421929!16s%2Fg%2F11c6dc_rqj!19sChIJq3Xt9PlmYogR9qvRLVNTQlA?authuser=0&hl=en&rclk=1",
+                    "Category": "Graphic designer"
                 },
                 {
                     "State": "Alabama",
@@ -222,10 +222,10 @@ export const demoxlData = {
                     "YouTube": "https://www.youtube.com/channel/UCurGLqUGTiUnXiwD1-l7UxQ"
                 },
                 {
-                    "State": "Alabama",
+                    "State": "Dhaka",
                     "Name": "Add and Subtract Design",
                     "Instagram": "https://www.instagram.com/addandsubtractdesign/",
-                    "Facebook": "https://www.facebook.com/addandsubtractdesign/",
+                    "Facebook": "",
                     "Email": "info@addandsubtractdesign.com",
                     "Website": "https://www.addandsubtractdesign.com/",
                     "Phone": "1 251-888-0228",

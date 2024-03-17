@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 type TBaseColumnSelect = {
-    columns: string[]
+    sheetData: any[]
     onClick:  React.Dispatch<React.SetStateAction<string>>
 }
-const BaseColumnSelect = ({columns,onClick}:TBaseColumnSelect) => {
+const BaseColumnSelect = ({onClick,sheetData}:TBaseColumnSelect) => {
+    const columns = sheetData.length ?  Object.keys(sheetData[0]).filter((nameEl)=>nameEl.length) : [];
     return (
         <div>
             <h2 style={{margin:"12px auto"}}>Choose a Your Base Column</h2>
