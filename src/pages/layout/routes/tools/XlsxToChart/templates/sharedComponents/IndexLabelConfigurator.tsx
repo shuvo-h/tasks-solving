@@ -4,7 +4,9 @@ import { TIndexLabelConfig } from './useCanvasjsConfig';
 
 type TIndexLabelConfiguratorProps = {
     indexLabelConfig: TIndexLabelConfig;
-    setIndexLabelConfig: React.Dispatch<React.SetStateAction<TIndexLabelConfig>>;
+    setIndexLabelConfig?: React.Dispatch<React.SetStateAction<TIndexLabelConfig>>;
+    arrayIndex?: number; 
+    setArrayIndexIndexLabelConfig?: React.Dispatch<React.SetStateAction<TIndexLabelConfig[]>>;
 };
 
 type TIndexLabelField = {
@@ -18,7 +20,10 @@ type TIndexLabelField = {
 const IndexLabelConfigurator = ({
     indexLabelConfig,
     setIndexLabelConfig,
+    arrayIndex,
+    setArrayIndexIndexLabelConfig,
 }: TIndexLabelConfiguratorProps) => {
+    /*
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setIndexLabelConfig(prevOptions => ({
@@ -26,6 +31,30 @@ const IndexLabelConfigurator = ({
             [name]: value,
         }));
     };
+    */
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        const newValue = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+        
+        if (setArrayIndexIndexLabelConfig) {
+            setArrayIndexIndexLabelConfig(prevConfigs => {
+                const updatedConfigs = [...prevConfigs];
+                updatedConfigs[arrayIndex] = {
+                    ...updatedConfigs[arrayIndex],
+                    [name]: newValue,
+                };
+                return updatedConfigs;
+            });
+        } else {
+            setIndexLabelConfig(prevConfig => ({
+                ...prevConfig,
+                [name]: newValue,
+            }));
+        }
+    };
+    
+    
+
 
     const indexLabelFields: TIndexLabelField[] = [
         { name: 'indexLabel', label: 'Index Label', type: 'text' },

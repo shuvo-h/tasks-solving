@@ -1,8 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
+export type TCanvasJsOptions = {
+  theme: string;
+  height: number;
+  width: number;
+  animationEnabled: boolean;
+  exportEnabled: boolean;
+  title: TTitleConfig;
+  axisX: TAxiosConfig;
+  axisY: TAxiosConfig;
+  legend: TLegendConfigure;
+  toolTip: {
+      shared: boolean;
+      reversed: boolean;
+  };
+  data: any[];
+}
 
 type TuseCanvasjsConfigProps = {
-  suffixShown: () => "%" | "";
+  suffixShown: () => string;
 };
 export type TLegendConfigure = {
   fontColor: string;
@@ -14,7 +30,7 @@ export type TLegendConfigure = {
 };
 export type TAxiosConfig = {
   title: string;
-  suffix: "" | "%";
+  suffix: string;
   labelFontSize: number;
   interval: number;
   labelAngle: number;
@@ -59,6 +75,11 @@ export type TIndexLabelConfig = {
   indexLabelPlacement: string
   indexLabelLineThickness: number,
   indexLabelOrientation: "vertical"|"horizontal"
+}
+export type TCustomConfig = {
+  theme: string;
+  height: number;
+  width: number;
 }
 const useCanvasjsConfig = ({ suffixShown }: TuseCanvasjsConfigProps) => {
   const [xAxisConfigure, setXAxisConfigure] = useState<TAxiosConfig>({
@@ -135,6 +156,12 @@ const useCanvasjsConfig = ({ suffixShown }: TuseCanvasjsConfigProps) => {
     indexLabelOrientation: "vertical",
 });
 
+const [customConfig,setCustomConfig] = useState<TCustomConfig>({
+  theme: "light1", // "light1", "light2", "dark1", "dark2"
+  height:860,  
+  width: 1300,
+})
+
   return {
     yAxisConfigure,
     setYAxisConfigure,
@@ -146,6 +173,8 @@ const useCanvasjsConfig = ({ suffixShown }: TuseCanvasjsConfigProps) => {
     setTitleConfig,
     indexLabelConfig,
     setIndexLabelConfig,
+    customConfig,
+    setCustomConfig,
   };
 };
 

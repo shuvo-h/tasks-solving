@@ -135,6 +135,10 @@ const StackedBarChart = ({ chartType, data }: TStackedBarChartprops) => {
           titleOptions={titleConfig}
         />
       </div>
+      <div>
+          <h4>Custom Configure</h4>
+          <CustomConfigurator customConfig={customConfig} setCustomConfig={setCustomConfig} />
+        </div>
       <div ref={chartContainerRef} id="myChart">
         <CanvasJSChart options={options}  />
       </div>
@@ -159,10 +163,7 @@ const StackedBarChart = ({ chartType, data }: TStackedBarChartprops) => {
           <h4>Index Label Configure (HasNot)</h4>
           <IndexLabelConfigurator indexLabelConfig={indexLabelConfigHasNot}  setIndexLabelConfig={setIndexLabelConfigHasNot} />
         </div>
-        <div>
-          <h4>Custom Configure</h4>
-          <CustomConfigurator customConfig={customConfig} setCustomConfig={setCustomConfig} />
-        </div>
+        
       </div>
     </div>
   );

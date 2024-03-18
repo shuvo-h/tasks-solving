@@ -62,7 +62,7 @@ const CustomConfigurator: React.FC<TCustomConfigProps> = ({ customConfig, setCus
                     name={field.name as string}
                     value={customConfig[field.name]}
                     min="500"
-                    max="2000"
+                    max="3000"
                     step="100"
                     onChange={handleInputChange}
                 />

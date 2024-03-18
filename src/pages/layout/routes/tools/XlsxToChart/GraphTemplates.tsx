@@ -1,12 +1,18 @@
+export type TTemplate = keyof typeof TEMPLATES;
+
+export const TEMPLATES = {
+    hasOrNotBarChart:"hasOrNotBarChart",
+    hasOrNotPieChart:"hasOrNotPieChart",
+}
 
 export const templateList = [
     {
-        key:"hasOrNotBarChart",
+        key: TEMPLATES.hasOrNotBarChart,
         title:"Has Or Not Comparisn",
         type:"Bar Chart"
     },
     {
-        key:"hasOrNotPieChart",
+        key: TEMPLATES.hasOrNotPieChart,
         title:"Has Or Not Pie Comparisn",
         type:"Pie Chart"
     },
@@ -17,7 +23,7 @@ export const templateList = [
     },
 ]
 type TGraphTemplatesProps = {
-    onClick:  React.Dispatch<React.SetStateAction<string>>
+    onClick:  React.Dispatch<React.SetStateAction<TTemplate>>
 }
 
 const GraphTemplates = ({onClick}:TGraphTemplatesProps) => {

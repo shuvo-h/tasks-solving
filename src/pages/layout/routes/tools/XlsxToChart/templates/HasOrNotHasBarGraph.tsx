@@ -6,6 +6,8 @@ import "./template.css";
 
 type THasOrNotHasBarGraphProps = {
   filteredData: any[];
+  sheetName: string;
+  primaryColumn: string;
 };
 const chartTypes = [ 
     'stackedBar100', 
@@ -18,10 +20,10 @@ const chartTypes = [
     // 'doughnut', 
 ];
 
-const HasOrNotHasBarGraph = ({ filteredData }: THasOrNotHasBarGraphProps) => {
+const HasOrNotHasBarGraph = ({ filteredData,primaryColumn,sheetName }: THasOrNotHasBarGraphProps) => {
   const [activeBar, setActiveBar] = useState("Group By");
   const [chartType, setChartType] = useState('stackedBar');
-  const [groupBy, setGroupBy] = useState("");
+  const [groupBy, setGroupBy] = useState(primaryColumn);
   const [hasOrNotHasBy, setHasOrNotHasBy] = useState("");
   const hsData = graphDataFormatter.hasAndNotHas(
     filteredData,
