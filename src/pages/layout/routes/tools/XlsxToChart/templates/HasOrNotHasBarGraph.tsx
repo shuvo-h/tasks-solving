@@ -20,7 +20,7 @@ const chartTypes = [
     // 'doughnut', 
 ];
 
-const HasOrNotHasBarGraph = ({ filteredData,primaryColumn,sheetName }: THasOrNotHasBarGraphProps) => {
+const HasOrNotHasBarGraph = ({ filteredData,primaryColumn, }: THasOrNotHasBarGraphProps) => {
   const [activeBar, setActiveBar] = useState("Group By");
   const [chartType, setChartType] = useState('stackedBar');
   const [groupBy, setGroupBy] = useState(primaryColumn);

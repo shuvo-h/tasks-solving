@@ -4,11 +4,11 @@ import Stepper from "../../../../../widget/stepper/Stepper";
 import PageHead from "../../../../../widget/PageHead";
 import "./XlsxToChart.css";
 import FileUpload from "./FileUpload";
-import { demoxlData } from "./demoData";
 import SheetSelect from "./SheetSelect";
 import BaseColumnSelect from "./BaseColumnSelect";
 import GraphTemplates, { TEMPLATES, TTemplate } from "./GraphTemplates";
 import GraphGenerator from "./GraphGenerator";
+// import { demoxlData } from "./demoData";
 
 
 const XlsxToChart = () => {
@@ -18,7 +18,7 @@ const XlsxToChart = () => {
     // const [xlData,setXlData] = useState<TXLSXFile>(demoxlData);
     // const [selectedSheet,setSelectedSheet] = useState<TXLSXSheetData>(demoxlData.sheetData[0] as TXLSXSheetData);
     const [selectedPrimaryColumn,setSelectedPrimaryColumn] = useState<string>("State");
-    const [selectedTemplate,setSelectedTemplate] = useState<TTemplate>(TEMPLATES.hasOrNotBarChart);
+    const [selectedTemplate,setSelectedTemplate] = useState<TTemplate>(TEMPLATES.hasOrNotBarChart as "hasOrNotBarChart");
     
     
 

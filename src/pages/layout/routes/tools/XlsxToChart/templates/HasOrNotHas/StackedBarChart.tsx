@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import  { useRef, useState } from "react";
+// @ts-ignore
 import CanvasJSReact from "@canvasjs/react-charts";
 import TitleConfigurator from "../sharedComponents/TitleConstructor";
 import AxisConfigurator from "../sharedComponents/AxisConfigurator";

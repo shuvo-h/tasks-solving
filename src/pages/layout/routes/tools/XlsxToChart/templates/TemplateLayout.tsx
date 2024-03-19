@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from "react";
-import { graphDataFormatter } from "../xlsxToCharUtils";
-import StackedBarChart from "./HasOrNotHas/StackedBarChart";
 import "./template.css";
 import GraphViewerLayout from "./GraphViewerLayout";
 import { TAxiosConfig, TCustomConfig, TIndexLabelConfig, TLegendConfigure, TTitleConfig } from "./sharedComponents/useCanvasjsConfig";
@@ -72,26 +70,8 @@ const TemplateLayout = ({
 }: TTemplateLayoutProps) => {
   const [activeBar, setActiveBar] = useState("Group By");
   const [chartTypes, setChartTypes] = useState<string[]>([]);
-  // const [chartType, setChartType] = useState('stackedBar');
   const [groupBy, setGroupBy] = useState(primaryColumn);
-  // const [hasOrNotHasBy, setHasOrNotHasBy] = useState("");
-  // const hsData = graphDataFormatter.hasAndNotHas(
-  //   filteredData,
-  //   groupBy,
-  //   hasOrNotHasBy
-  // );
-
-  const suffixShown = () => {
-    switch (chartType) {
-      case "stackedBar100":
-      case "stackedColumn100":
-        return "%";
-
-      default:
-        return "";
-    }
-  };
-
+  
   const generateChartTypeBySelectedTemplate = () =>{
     switch (template) {
       case TEMPLATES.hasOrNotBarChart:

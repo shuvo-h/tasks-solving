@@ -146,15 +146,3 @@ export const graphDataFormatter = {
     
     
 }
-
-export const downloadChartById = (id:string,name:string) =>{
-    const lineCanvas = document.getElementById(id);
-    if (!lineCanvas) {
-        return
-    }
-    const lineUrl = lineCanvas.toDataURL('image/jpeg');
-    const lineLink = document.createElement('a');
-    lineLink.href = lineUrl;
-    lineLink.download = `${name}.jpg`;
-    lineLink.click();
-  }

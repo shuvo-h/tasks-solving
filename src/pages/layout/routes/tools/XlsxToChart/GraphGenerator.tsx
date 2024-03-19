@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TEMPLATES, TTemplate, templateList } from "./GraphTemplates";
+import { TEMPLATES, TTemplate } from "./GraphTemplates";
 import HasOrNotHasBarGraph from "./templates/HasOrNotHasBarGraph";
 import HasOrNotHasPieGraph from "./templates/HasOrNotHasPieGraph";
 import TemplateLayout from "./templates/TemplateLayout";

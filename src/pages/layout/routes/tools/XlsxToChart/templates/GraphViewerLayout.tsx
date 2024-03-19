@@ -1,10 +1,10 @@
-import  { ReactNode,  useEffect,  useState } from "react";
+import  { ReactNode,  useEffect, } from "react";
 import TitleConfigurator from "./sharedComponents/TitleConstructor";
 import CustomConfigurator from "./sharedComponents/CustomConfigurator";
 import AxisConfigurator from "./sharedComponents/AxisConfigurator";
 import LegendConfigurator from "./sharedComponents/LegendConfigurator";
 import IndexLabelConfigurator from "./sharedComponents/IndexLabelConfigurator";
-import useCanvasjsConfig, { TAxiosConfig, TCustomConfig, TIndexLabelConfig, TLegendConfigure, TTitleConfig } from "./sharedComponents/useCanvasjsConfig";
+import  { TAxiosConfig, TCustomConfig, TIndexLabelConfig, TLegendConfigure, TTitleConfig } from "./sharedComponents/useCanvasjsConfig";
 
 
 

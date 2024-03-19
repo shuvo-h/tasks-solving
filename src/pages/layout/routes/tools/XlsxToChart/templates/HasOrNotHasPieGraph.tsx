@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// @ts-ignore
 import CanvasJSReact from "@canvasjs/react-charts";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { TCanvasJsOptions, TIndexLabelConfig } from "./sharedComponents/useCanvasjsConfig";
 import { graphDataFormatter } from "../xlsxToCharUtils";
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;

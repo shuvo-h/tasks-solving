@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type TTemplate = keyof typeof TEMPLATES;
 
 export const TEMPLATES = {
@@ -46,7 +47,7 @@ const GraphTemplates = ({onClick}:TGraphTemplatesProps) => {
                             cursor:"pointer"
                         }} 
                         key={idx}
-                        onClick={()=>onClick(tplEl.key)}
+                        onClick={()=>onClick(tplEl.key as any)}
                     >
                         <h4>{tplEl.title}</h4>
                         <small>{tplEl.type}</small>
