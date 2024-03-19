@@ -4,7 +4,7 @@ import { graphDataFormatter } from "../xlsxToCharUtils";
 import StackedBarChart from "./HasOrNotHas/StackedBarChart";
 import "./template.css";
 import GraphViewerLayout from "./GraphViewerLayout";
-import { TAxiosConfig, TCustomConfig, TLegendConfigure, TTitleConfig } from "./sharedComponents/useCanvasjsConfig";
+import { TAxiosConfig, TCustomConfig, TIndexLabelConfig, TLegendConfigure, TTitleConfig } from "./sharedComponents/useCanvasjsConfig";
 import { TEMPLATES, TTemplate } from "../GraphTemplates";
 
 type TTemplateLayoutProps = {
@@ -24,8 +24,12 @@ type TTemplateLayoutProps = {
   setTitleConfig: React.Dispatch<React.SetStateAction<TTitleConfig>>,
   // indexLabelConfig: TIndexLabelConfig,
   // setIndexLabelConfig:React.Dispatch<React.SetStateAction<TIndexLabelConfig>>,
+  indexLabelConfigs: TIndexLabelConfig[],
+  setIndexLabelConfigs:React.Dispatch<React.SetStateAction<TIndexLabelConfig[]>>,
   customConfig: TCustomConfig,
-  setCustomConfig:React.Dispatch<React.SetStateAction<TCustomConfig>>
+  setCustomConfig:React.Dispatch<React.SetStateAction<TCustomConfig>>,
+  hasOrNotHasBy: string, 
+    setHasOrNotHasBy:React.Dispatch<React.SetStateAction<string>>
 };
 const hasOrNotBarChart_chartTypes = [ 
     'stackedBar100', 
@@ -59,18 +63,24 @@ const TemplateLayout = ({
   setTitleConfig,
   // indexLabelConfig,
   // setIndexLabelConfig, 
+  indexLabelConfigs,
+  setIndexLabelConfigs, 
   customConfig,
-  setCustomConfig}: TTemplateLayoutProps) => {
+  setCustomConfig,
+  hasOrNotHasBy,
+  setHasOrNotHasBy,
+}: TTemplateLayoutProps) => {
   const [activeBar, setActiveBar] = useState("Group By");
   const [chartTypes, setChartTypes] = useState<string[]>([]);
   // const [chartType, setChartType] = useState('stackedBar');
   const [groupBy, setGroupBy] = useState(primaryColumn);
-  const [hasOrNotHasBy, setHasOrNotHasBy] = useState("");
-  const hsData = graphDataFormatter.hasAndNotHas(
-    filteredData,
-    groupBy,
-    hasOrNotHasBy
-  );
+  // const [hasOrNotHasBy, setHasOrNotHasBy] = useState("");
+  // const hsData = graphDataFormatter.hasAndNotHas(
+  //   filteredData,
+  //   groupBy,
+  //   hasOrNotHasBy
+  // );
+
   const suffixShown = () => {
     switch (chartType) {
       case "stackedBar100":
@@ -102,7 +112,7 @@ const TemplateLayout = ({
   const columns = filteredData.length
     ? Object.keys(filteredData[0]).filter((nameEl) => nameEl.length)
     : [];
-  console.log(hsData);
+  // console.log(hsData);
 
   return (
     <section  className="hasOrNoHasPage_container">
@@ -119,6 +129,8 @@ const TemplateLayout = ({
           titleConfig={titleConfig}
           xAxisConfigure={xAxisConfigure}
           yAxisConfigure={yAxisConfigure}
+          indexLabelConfigs={indexLabelConfigs}
+          setIndexLabelConfigs={setIndexLabelConfigs}
         >
           {children}
         </GraphViewerLayout>

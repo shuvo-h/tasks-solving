@@ -36,7 +36,7 @@ const IndexLabelConfigurator = ({
         const { name, value, type } = e.target;
         const newValue = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
         
-        if (setArrayIndexIndexLabelConfig) {
+        if (setArrayIndexIndexLabelConfig && typeof arrayIndex === 'number') {
             setArrayIndexIndexLabelConfig(prevConfigs => {
                 const updatedConfigs = [...prevConfigs];
                 updatedConfigs[arrayIndex] = {
@@ -45,7 +45,7 @@ const IndexLabelConfigurator = ({
                 };
                 return updatedConfigs;
             });
-        } else {
+        } else if(setIndexLabelConfig) {
             setIndexLabelConfig(prevConfig => ({
                 ...prevConfig,
                 [name]: newValue,

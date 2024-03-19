@@ -125,6 +125,25 @@ export const graphDataFormatter = {
     
         return result;
     },
+     hasAndNotHasWithoutGroup<T extends DataItem>(data: T[], hasNoHasKeyName: string) {
+        let hasCount = 0;
+        let notHasCount = 0;
+    
+        data.forEach(item => {
+            if (item[hasNoHasKeyName]) {
+                hasCount++;
+            } else {
+                notHasCount++;
+            }
+        });
+    
+        return {
+            key: hasNoHasKeyName,
+            hasCount: hasCount,
+            notHasCount: notHasCount
+        };
+    },
+    
     
 }
 

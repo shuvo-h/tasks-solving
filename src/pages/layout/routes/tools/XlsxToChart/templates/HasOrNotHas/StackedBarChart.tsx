@@ -19,7 +19,7 @@ type TStackedBarChartprops = {
 };
 
 const StackedBarChart = ({ chartType, data }: TStackedBarChartprops) => {
-  
+  const [showType,setShowType] = useState('both');
   const suffixShown = () => {
     switch (chartType) {
       case "stackedBar100":
@@ -125,6 +125,8 @@ const StackedBarChart = ({ chartType, data }: TStackedBarChartprops) => {
     
   };
 
+  // show only one type either Has Col or NoHas Col
+ 
 
   
   return (
@@ -138,9 +140,27 @@ const StackedBarChart = ({ chartType, data }: TStackedBarChartprops) => {
       <div>
           <h4>Custom Configure</h4>
           <CustomConfigurator customConfig={customConfig} setCustomConfig={setCustomConfig} />
-        </div>
+      </div>
+      <div>
+        <h4>Show Type</h4>
+        <select onChange={e=>setShowType(e.target.value)} name="" id="">
+          <option value="both">Both Chart </option>
+          <option value="has">Has</option>
+          <option value="noHas">No Has Chart</option>
+        </select>
+      </div>
+      <h3>{showType}</h3>
       <div ref={chartContainerRef} id="myChart">
-        <CanvasJSChart options={options}  />
+        {
+          showType === 'both' && <CanvasJSChart options={options}  />
+        }
+        {
+          showType === 'has' && <CanvasJSChart options={{...options,data:[options.data[0]]}}  />
+        }
+        {
+          showType === 'noHas' && <CanvasJSChart options={{...options,data:[options.data[1]]}}  />
+        }
+        {/* <CanvasJSChart options={options}  /> */}
       </div>
       <div style={{display:"flex",flexWrap:"wrap",gap:"1rem"}}>
         <div>

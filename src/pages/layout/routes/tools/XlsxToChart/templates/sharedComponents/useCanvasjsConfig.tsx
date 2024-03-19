@@ -158,8 +158,8 @@ const useCanvasjsConfig = ({ suffixShown }: TuseCanvasjsConfigProps) => {
 
 const [customConfig,setCustomConfig] = useState<TCustomConfig>({
   theme: "light1", // "light1", "light2", "dark1", "dark2"
-  height:860,  
-  width: 1300,
+  height:560,  
+  width: 800,
 })
 
   return {

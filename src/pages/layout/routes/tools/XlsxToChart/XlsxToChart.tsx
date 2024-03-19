@@ -7,17 +7,18 @@ import FileUpload from "./FileUpload";
 import { demoxlData } from "./demoData";
 import SheetSelect from "./SheetSelect";
 import BaseColumnSelect from "./BaseColumnSelect";
-import GraphTemplates, { TTemplate } from "./GraphTemplates";
+import GraphTemplates, { TEMPLATES, TTemplate } from "./GraphTemplates";
 import GraphGenerator from "./GraphGenerator";
 
 
 const XlsxToChart = () => {
-    const [activeStep,setActiveStep] = useState(5);
-    // const [xlData,setXlData] = useState<TXLSXFile>({sheetData:[],fileName:""} as TXLSXFile)
-    const [xlData,setXlData] = useState<TXLSXFile>(demoxlData);
-    const [selectedSheet,setSelectedSheet] = useState<TXLSXSheetData>(demoxlData.sheetData[0] as TXLSXSheetData);
-    const [selectedPrimaryColumn,setSelectedPrimaryColumn] = useState<string>("Name");
-    const [selectedTemplate,setSelectedTemplate] = useState<TTemplate>("hasOrNotPieChart");
+    const [activeStep,setActiveStep] = useState(1);
+    const [xlData,setXlData] = useState<TXLSXFile>({sheetData:[],fileName:""} as TXLSXFile)
+    const [selectedSheet,setSelectedSheet] = useState<TXLSXSheetData>({sheet:'',data:[]});
+    // const [xlData,setXlData] = useState<TXLSXFile>(demoxlData);
+    // const [selectedSheet,setSelectedSheet] = useState<TXLSXSheetData>(demoxlData.sheetData[0] as TXLSXSheetData);
+    const [selectedPrimaryColumn,setSelectedPrimaryColumn] = useState<string>("State");
+    const [selectedTemplate,setSelectedTemplate] = useState<TTemplate>(TEMPLATES.hasOrNotBarChart);
     
     
 

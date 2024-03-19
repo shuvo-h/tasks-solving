@@ -81,18 +81,23 @@ const GraphViewerLayout = ({
           For this <IndexLabelConfigurator>, later you will use array to keep the indexLabelConfig and and setIndexLabelConfigHas in <GraphGenerator> and pass the array where need and render the index label dynamically
           For useCanvasjsConfig() hook, look for the way how can you dynamically create the hook call
         */}
-        <div>
-          <h4>Index Label Configure (Has)</h4>
-          {/* <IndexLabelConfigurator indexLabelConfig={indexLabelConfigHas}  setIndexLabelConfig={setIndexLabelConfigHas} /> */}
-          {/* {
-            indexLabelConfigs.map((indexLabelConfig,idx)=><IndexLabelConfigurator indexLabelConfig={indexLabelConfig}  setArrayIndexIndexLabelConfig={setIndexLabelConfigs} arrayIndex={idx} key={idx} />)
-          } */}
-        </div>
-        <div>
-          <h4>Index Label Configure (HasNot)</h4>
-          {/* <IndexLabelConfigurator indexLabelConfig={indexLabelConfigHasNot}  setIndexLabelConfig={setIndexLabelConfigHasNot} /> */}
-        </div>
-        
+        {/*         
+          <div>
+            <h4>Index Label Configure (Has)</h4>
+            <IndexLabelConfigurator indexLabelConfig={indexLabelConfigHas}  setIndexLabelConfig={setIndexLabelConfigHas} />
+          </div>
+          <div>
+            <h4>Index Label Configure (HasNot)</h4>
+            <IndexLabelConfigurator indexLabelConfig={indexLabelConfigHasNot}  setIndexLabelConfig={setIndexLabelConfigHasNot} />
+          </div> 
+        */}
+
+        {
+          indexLabelConfigs.map((indexLabelConfig,idx)=><div>
+            <h4>Index Label Configure {idx+1}</h4>
+            <IndexLabelConfigurator indexLabelConfig={indexLabelConfig}  setArrayIndexIndexLabelConfig={setIndexLabelConfigs} arrayIndex={idx} key={idx} />
+          </div>)
+        }
       </div>
     </div>
   );
